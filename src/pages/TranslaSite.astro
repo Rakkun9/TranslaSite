@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ContainerTranslaSite from "../components/ContainerTranslaSite.astro";
+import Options from "../components/Options.astro";
+import Translate from "../icons/Translate.astro";
+---
+
+<Layout title="TranslaSite">
+  <ContainerTranslaSite class="py-20">
+    <nav class="flex gap-4 mt-8 flex-wrap">
+      <Options href="https://youtube.com">
+        <Translate class="size-4 md:size-6" />Traducir
+      </Options>
+      <Options href="https://youtube.com">
+        <Translate class="size-4 md:size-6" />Traducir
+      </Options>
+      <Options href="https://youtube.com">
+        <Translate class="size-4 md:size-6" />Traducir
+      </Options>
+    </nav>
+  </ContainerTranslaSite>
+</Layout>
