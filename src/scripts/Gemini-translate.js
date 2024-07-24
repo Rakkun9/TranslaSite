@@ -7,5 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Contenido del textarea 1:', texto1);
         
         // Aquí puedes agregar la lógica para enviar los datos al servidor o manipularlos según sea necesario
+        
     });
 });
