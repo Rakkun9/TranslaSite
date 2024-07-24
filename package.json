@@ -13,8 +13,13 @@
     "@astrojs/check": "^0.8.1",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource-variable/outfit": "^5.0.13",
+    "@google/generative-ai": "^0.15.0",
     "astro": "^4.11.5",
+    "dotenv": "^16.4.5",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.5.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.12"
   }
 }
