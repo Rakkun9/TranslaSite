@@ -1,7 +1,7 @@
 
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-const genAI = new GoogleGenerativeAI("");
+const genAI = new GoogleGenerativeAI("AIzaSyB2mj4tS95ID7e0dUieqmnkBE4s6q-ved4");
 
 async function run(prompt){
   
@@ -20,12 +20,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const button = document.querySelector(
     'input[type="button"][value="Traducir"]'
   );
-  button.addEventListener("click", () => {
+  button.addEventListener("click", async () => {
     const texto1 = document.getElementById("textarea1").value;
     console.log("Contenido del textarea 1:", texto1);
+    const texto2 = document.getElementById("textarea2");
 
     // Promp to generate the translation
-    let translation = run(texto1);
+
+    try {
+      // Promp to generate the translation // Asegúrate de usar await aquí también
+      texto2.value = await run(texto1); // Sobrescribir el contenido de textarea2
+    } catch (error) {
+      console.error("Error en la traducción:", error);
+      texto2.value = "Error en la traducción";
+    }
+
     
   });
 });
