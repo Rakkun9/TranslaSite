@@ -1,22 +1,14 @@
 ---
-import Exchange from "../../icons/Exchange.astro"
+import Exchange from "../../icons/Exchange.astro";
 ---
 
-<form class="max-w-sm mx-auto">
-  <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
-  <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-    <option selected>Choose a country</option>
-    <option value="US">United States</option>
-    <option value="CA">Canada</option>
-    <option value="FR">France</option>
-    <option value="DE">Germany</option>
-  </select>
-</form>
+
+
 
 <div
   class="flex align-middle text-center justify-between bg-[#0BBD84] mt-10 p-5 rounded-t-md"
 >
-  <select name="" id="sourceLang" class="bg-[#fff7f3]">
+  <select name="" id="sourceLang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5">
     <option value="es">Español</option>
     <option value="en">Inglés</option>
     <option value="fr">Francés</option>
@@ -62,9 +54,9 @@ import Exchange from "../../icons/Exchange.astro"
     <Exchange />
   </button>
 
-  <select name="" id="targetLang">
+  <select name="" id="targetLang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
     <option value="es">Español</option>
-    <option value="en">Inglés</option>
+    <option value="en" selected>Inglés</option>
     <option value="fr">Francés</option>
     <option value="de">Alemán</option>
     <option value="it">Italiano</option>
@@ -104,7 +96,7 @@ import Exchange from "../../icons/Exchange.astro"
     <option value="ne">Nepalí</option>
   </select>
 </div>
-<div class="flex h-60">
+<div class="flex h-96">
   <textarea
     name=""
     id="textarea1"
