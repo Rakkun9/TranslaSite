@@ -10,7 +10,6 @@ async function run(prompt, sourceLang, targetLang) {
   const result = await model.generateContent(preppedPrompt);
   const response = await result.response;
   const text = response.text();
-  console.log(text);
   return text;
 }
 
@@ -33,10 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Por favor, selecciona idiomas diferentes");
       return;
     }
-
-    console.log("Contenido del textarea 1:", texto1);
-    console.log("Idioma de origen:", sourceLang);
-    console.log("Idioma de destino:", targetLang);
 
     // Promp to generate the translation
 
