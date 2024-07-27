@@ -1,19 +1,17 @@
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
-import { GoogleGenerativeAI } from '@google/generative-ai';
+const genAI = new GoogleGenerativeAI("AIzaSyB2mj4tS95ID7e0dUieqmnkBE4s6q-ved4");
 
-const genAI = new GoogleGenerativeAI("");
+async function run(prompt, sourceLang, targetLang) {
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-async function run(prompt){
-  
-    const model = genAI.getGenerativeModel({model:'gemini-1.5-flash'});
+  const preppedPrompt = `Translate the following text from ${sourceLang} to ${targetLang}: ${prompt}`;
 
-    const preppedPrompt = 'Translate the following text into Spanish: ' + prompt;
-
-    const result = await model.generateContent(preppedPrompt);
-    const response = await result.response; 
-    const text = response.text(); 
-    console.log(text);
-    return text; 
+  const result = await model.generateContent(preppedPrompt);
+  const response = await result.response;
+  const text = response.text();
+  console.log(text);
+  return text;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -22,21 +20,32 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   button.addEventListener("click", async () => {
     const texto1 = document.getElementById("textarea1").value;
-    console.log("Contenido del textarea 1:", texto1);
     const texto2 = document.getElementById("textarea2");
+
+    const sourceLang = document.getElementById("sourceLang").value;
+    const targetLang = document.getElementById("targetLang").value;
+
+    if (!texto1) {
+      alert("Por favor, introduce el texto a traducir");
+      return;
+    }
+    if(sourceLang === targetLang) {
+      alert("Por favor, selecciona idiomas diferentes");
+      return;
+    }
+
+    console.log("Contenido del textarea 1:", texto1);
+    console.log("Idioma de origen:", sourceLang);
+    console.log("Idioma de destino:", targetLang);
 
     // Promp to generate the translation
 
     try {
       // Promp to generate the translation // Asegúrate de usar await aquí también
-      texto2.value = await run(texto1); // Sobrescribir el contenido de textarea2
+      texto2.value = await run(texto1, sourceLang, targetLang); // Sobrescribir el contenido de textarea2
     } catch (error) {
       console.error("Error en la traducción:", error);
       texto2.value = "Error en la traducción";
     }
-
-    
   });
 });
-
-   
