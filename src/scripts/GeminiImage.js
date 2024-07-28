@@ -11,7 +11,6 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 //   },
 // };
 
-
 // document.addEventListener("DOMContentLoaded", () => {
 //   const fileInput = document.getElementById("dropzone-file");
 //   let imageUrl = '';
@@ -52,8 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.log("Imagen en base64:", base64Image);
         console.log("Tipo MIME:", mimeType);
-
-
 
         const result = await model.generateContent([prompt, image]);
         console.log(result.response.text());
