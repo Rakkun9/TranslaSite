@@ -1,6 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-
 const genAI = new GoogleGenerativeAI("AIzaSyB2mj4tS95ID7e0dUieqmnkBE4s6q-ved4");
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
@@ -8,8 +7,6 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 document.addEventListener("DOMContentLoaded", () => {
   const fileInput = document.getElementById("dropzone-file");
   const textAreaImage = document.getElementById("textAreaImage");
-  const sourceLang = document.getElementById("sourceLang").value;
-  const targetLang = document.getElementById("targetLang").value;
 
   fileInput.addEventListener("change", async () => {
     const file = fileInput.files[0];
@@ -17,11 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const reader = new FileReader();
 
       reader.onload = async (event) => {
+        const sourceLang = document.getElementById("sourceLangImage").value;
+        const targetLang = document.getElementById("targetLangImage").value;
         const base64Image = event.target.result.split(",")[1]; // Obtén la cadena base64
         const mimeType = file.type; // Obtén el tipo MIME del archivo
 
         const prompt = `Quiero que traduzcas el texto de esta imagen de ${sourceLang} a ${targetLang}, tu respuesta tiene que ser dada en ${targetLang}.`;
-        console.log(prompt); 
+        console.log(prompt);
 
         const image = {
           inlineData: {
