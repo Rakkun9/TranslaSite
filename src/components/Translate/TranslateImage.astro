@@ -9,11 +9,110 @@ import Exchange from "../../icons/Exchange.astro";
       <label class="font-bold">¡Prueba aquí!</label>
     </h1>
   </div>
+  <div
+    class="flex align-middle text-center justify-between bg-[#0BBD84] p-5 rounded-t-md"
+  >
+    <select
+      name=""
+      id="sourceLang"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+    >
+      <option value="es">Español</option>
+      <option value="en">Inglés</option>
+      <option value="fr">Francés</option>
+      <option value="de">Alemán</option>
+      <option value="it">Italiano</option>
+      <option value="pt">Portugués</option>
+      <option value="ru">Ruso</option>
+      <option value="zh">Chino</option>
+      <option value="ja">Japonés</option>
+      <option value="ar">Árabe</option>
+      <option value="ko">Coreano</option>
+      <option value="tr">Turco</option>
+      <option value="nl">Holandés</option>
+      <option value="pl">Polaco</option>
+      <option value="sv">Sueco</option>
+      <option value="da">Danés</option>
+      <option value="fi">Finlandés</option>
+      <option value="no">Noruego</option>
+      <option value="cs">Checo</option>
+      <option value="hu">Húngaro</option>
+      <option value="ro">Rumano</option>
+      <option value="id">Indonesio</option>
+      <option value="ms">Malayo</option>
+      <option value="th">Tailandés</option>
+      <option value="vi">Vietnamita</option>
+      <option value="hi">Hindi</option>
+      <option value="bn">Bengalí</option>
+      <option value="fa">Persa</option>
+      <option value="he">Hebreo</option>
+      <option value="ur">Urdu</option>
+      <option value="ta">Tamil</option>
+      <option value="te">Telugu</option>
+      <option value="ml">Malayalam</option>
+      <option value="mr">Maratí</option>
+      <option value="kn">Kannada</option>
+      <option value="gu">Gujarati</option>
+      <option value="pa">Panyabí</option>
+      <option value="sd">Sindhi</option>
+      <option value="ne">Nepalí</option>
+    </select>
+
+    <button>
+      <Exchange />
+    </button>
+
+    <select
+      name=""
+      id="targetLang"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+    >
+      <option value="es">Español</option>
+      <option value="en" selected>Inglés</option>
+      <option value="fr">Francés</option>
+      <option value="de">Alemán</option>
+      <option value="it">Italiano</option>
+      <option value="pt">Portugués</option>
+      <option value="ru">Ruso</option>
+      <option value="zh">Chino</option>
+      <option value="ja">Japonés</option>
+      <option value="ar">Árabe</option>
+      <option value="ko">Coreano</option>
+      <option value="tr">Turco</option>
+      <option value="nl">Holandés</option>
+      <option value="pl">Polaco</option>
+      <option value="sv">Sueco</option>
+      <option value="da">Danés</option>
+      <option value="fi">Finlandés</option>
+      <option value="no">Noruego</option>
+      <option value="cs">Checo</option>
+      <option value="hu">Húngaro</option>
+      <option value="ro">Rumano</option>
+      <option value="id">Indonesio</option>
+      <option value="ms">Malayo</option>
+      <option value="th">Tailandés</option>
+      <option value="vi">Vietnamita</option>
+      <option value="hi">Hindi</option>
+      <option value="bn">Bengalí</option>
+      <option value="fa">Persa</option>
+      <option value="he">Hebreo</option>
+      <option value="ur">Urdu</option>
+      <option value="ta">Tamil</option>
+      <option value="te">Telugu</option>
+      <option value="ml">Malayalam</option>
+      <option value="mr">Maratí</option>
+      <option value="kn">Kannada</option>
+      <option value="gu">Gujarati</option>
+      <option value="pa">Panyabí</option>
+      <option value="sd">Sindhi</option>
+      <option value="ne">Nepalí</option>
+    </select>
+  </div>
 
   <div class="flex items-center justify-center w-full">
     <label
       for="dropzone-file"
-      class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
+      class="flex flex-col items-center justify-center w-full h-64 rounded-bl-lg border-2 border-gray-300 border-dashed cursor-pointer bg-gray-50 hover:bg-gray-100"
     >
       <div class="flex flex-col items-center justify-center pt-5 pb-6">
         <svg
@@ -36,8 +135,22 @@ import Exchange from "../../icons/Exchange.astro";
         </p>
         <p class="text-xs text-gray-500">PNG or JPG (MAX. 800x400px)</p>
       </div>
-      <input id="dropzone-file" type="file" class="hidden" accept="image/png, image/jpg" />
+      <input
+        id="dropzone-file"
+        type="file"
+        class="hidden"
+        accept="image/png, image/jpg"
+      />
       <script src="../../scripts/GeminiImage.js"></script>
     </label>
+    <div class="flex w-full h-64">
+      <textarea
+        name=""
+        id="textAreaImage"
+        disabled
+        class="w-full bg-slate-100 p-2 text-2xl border border-gray-300 hover:border-gray-400 focus:border-blue-500 transition duration-300 ease-in-out outline-none resize-none rounded-br-lg"
+      ></textarea>
+    </div>
   </div>
+  
 </section>
