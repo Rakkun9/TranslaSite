@@ -1,35 +1,15 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const genAI = new GoogleGenerativeAI("");
+
+const genAI = new GoogleGenerativeAI("AIzaSyB2mj4tS95ID7e0dUieqmnkBE4s6q-ved4");
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
-// const prompt = "Do these look store-bought or homemade?";
-// const image = {
-//   inlineData: {
-//     data: Buffer.from(fs.readFileSync("cookie.png")).toString("base64"),
-//     mimeType: "image/png, image/jpeg",
-//   },
-// };
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   const fileInput = document.getElementById("dropzone-file");
-//   let imageUrl = '';
-
-//   fileInput.addEventListener("change", () => {
-//     const file = fileInput.files[0];
-//     if (file) {
-//       imageUrl = URL.createObjectURL(file);
-//       console.log("Ruta de la imagen:", imageUrl);
-//       // Ahora puedes usar `imageUrl` en tu procesamiento
-//     } else {
-//       console.error('No se seleccionó ningún archivo.');
-//     }
-//   });
-// });
 
 // Obtén el elemento de entrada de archivos
 document.addEventListener("DOMContentLoaded", () => {
   const fileInput = document.getElementById("dropzone-file");
+  const textAreaImage = document.getElementById("textAreaImage");
+  const sourceLang = document.getElementById("sourceLang").value;
+  const targetLang = document.getElementById("targetLang").value;
 
   fileInput.addEventListener("change", async () => {
     const file = fileInput.files[0];
@@ -40,7 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const base64Image = event.target.result.split(",")[1]; // Obtén la cadena base64
         const mimeType = file.type; // Obtén el tipo MIME del archivo
 
-        const prompt = "Qué ves en esta imagen";
+        const prompt = `Quiero que traduzcas el texto de esta imagen de ${sourceLang} a ${targetLang}, tu respuesta tiene que ser dada en ${targetLang}.`;
+        console.log(prompt); 
 
         const image = {
           inlineData: {
@@ -49,14 +30,18 @@ document.addEventListener("DOMContentLoaded", () => {
           },
         };
 
+        if (sourceLang === targetLang) {
+          alert("Por favor, selecciona idiomas diferentes");
+          return;
+        }
         console.log("Imagen en base64:", base64Image);
         console.log("Tipo MIME:", mimeType);
 
         const result = await model.generateContent([prompt, image]);
-        console.log(result.response.text());
         const response = await result.response;
         const text = response.text();
         console.log(text);
+        textAreaImage.value = text;
       };
 
       reader.readAsDataURL(file); // Lee el archivo como una URL de datos (base64)
