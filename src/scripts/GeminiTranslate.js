@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Por favor, introduce el texto a traducir");
       return;
     }
-    if(sourceLang === targetLang) {
+    if (sourceLang === targetLang) {
       alert("Por favor, selecciona idiomas diferentes");
       return;
     }
