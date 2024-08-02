@@ -6,13 +6,16 @@ import Information from "../components/Information.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<Layout title="TranslaSite">
+<Layout
+  title="TranslaSite"
+  description="La página principal de translasite, donde puedes hacer traduciones con inteligencia artificial, haciendo estas traducciones altamente confiables"
+>
   <main class="px-4">
-    <SectionContainer class="py-44 pb-32">
-      <h1 class="font-extrabold text-5xl text-center">
+    <SectionContainer class="py-14 md:py-44 pb-32">
+      <h1 class="font-extrabold text-3xl md:text-5xl text-center">
         Explora el contenido del mundo en tu lengua materna
       </h1>
-      <h2 class="text-2xl text-center p-8">
+      <h2 class="text-lg md:text-2xl text-center p-8">
         Desde documentos académicos hasta artículos de noticias, nuestra
         plataforma ofrece traducciones instantáneas que preservan el significado
         y la intención original.
@@ -32,6 +35,5 @@ import Footer from "../components/Footer.astro";
     <SectionContainer>
       <Information />
     </SectionContainer>
-    <Footer />
   </main>
 </Layout>
