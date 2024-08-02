@@ -1,32 +1,23 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { createGoogleGenerativeAI, google } from "@ai-sdk/google";
-import {  generateText } from "ai";
+import { generateText } from "ai";
 
-
+//This api key is public anyone can use it
 
 const genAI = new GoogleGenerativeAI("AIzaSyB2mj4tS95ID7e0dUieqmnkBE4s6q-ved4");
 
 async function run(prompt, sourceLang, targetLang) {
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
   const google = createGoogleGenerativeAI({
+    //This api key is public anyone can use it
     apiKey: "AIzaSyB2mj4tS95ID7e0dUieqmnkBE4s6q-ved4", // should ideally be loaded from external place such as env variable
   });
- 
 
   const promptVercel = await generateText({
     model: google("models/gemini-1.5-flash-latest"),
-    prompt: "Invent a new holiday and describe its traditions.",
+    prompt: `Just translate the phase and do not put additional context. Translate the following text from ${sourceLang} to ${targetLang}: ${prompt}`,
   });
 
-  console.log(promptVercel);
-
-  const preppedPrompt = `Just translate the phase and do not put additional context. Translate the following text from ${sourceLang} to ${targetLang}: ${prompt}`;
-
-  const result = await model.generateContent(preppedPrompt);
-  const response = await result.response;
-  const text = response.text();
-  return text;
+  return promptVercel.text;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
