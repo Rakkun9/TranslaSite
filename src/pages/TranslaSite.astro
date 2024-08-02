@@ -8,28 +8,32 @@ import TranslateImage from "../components/Translate/TranslateImage.astro";
 import Image from "../icons/Image.astro";
 ---
 
-<Layout title="TranslaSite">
+<Layout
+  title="TranslaSite"
+  description="Puedes traduccir de imagen a texto o de texto a texto usando inteligencia artificial para potenciar la traducción"
+>
   <ContainerTranslaSite class="py-6 p-4">
     <nav class="flex gap-4 mt-8 flex-wrap">
-      <Options href="https://youtube.com">
+      <Options href="#text">
         <TranslateIcon class="size-4 md:size-6" />Texto A Texto
       </Options>
-      <Options href="https://youtube.com">
+      <Options href="#image">
         <Image class="size-4 md:size-6" />Imagen a texto
       </Options>
-      <Options href="https://youtube.com">
-        <TranslateIcon class="size-4 md:size-6" />Traducir
-      </Options>
     </nav>
-    <Translate />
-    <div class="p-5">
-      <input
-        class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-3.5 text-center me-2 mb-2 cursor-pointer"
-        type="button"
-        value="Traducir"
-      />
-    </div>
-    <TranslateImage />
+    <section>
+      <Translate id="text" />
+      <div class="p-5">
+        <input
+          class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-3.5 text-center me-2 mb-2 cursor-pointer"
+          type="button"
+          value="Traducir"
+        />
+      </div>
+    </section>
+    <section id="image">
+      <TranslateImage />
+    </section>
 
     <script type="module" src="/src/scripts/GeminiTranslate.js"></script>
   </ContainerTranslaSite>
