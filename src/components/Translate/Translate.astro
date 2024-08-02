@@ -12,6 +12,7 @@ import Exchange from "../../icons/Exchange.astro";
   <div
     class="flex align-middle text-center justify-between bg-[#0BBD84] p-5 rounded-t-md"
   >
+    <label for="sourceLang" class="sr-only">Idioma de origen</label>
     <select
       name=""
       id="sourceLang"
@@ -58,10 +59,11 @@ import Exchange from "../../icons/Exchange.astro";
       <option value="ne">Nepalí</option>
     </select>
 
-    <button>
+    <button aria-label="Intercambiar idiomas">
       <Exchange />
     </button>
 
+    <label for="targetLang" class="sr-only">Idioma final</label>
     <select
       name=""
       id="targetLang"
@@ -110,11 +112,13 @@ import Exchange from "../../icons/Exchange.astro";
   </div>
   <div class="flex h-96">
     <textarea
+      aria-labelledby="Texto de origen"
       name=""
       id="textarea1"
       class="w-full bg-slate-100 p-2 text-2xl border border-gray-300 hover:border-gray-400 focus:border-blue-500 transition duration-300 ease-in-out outline-none resize-none rounded-bl-lg"
     ></textarea>
     <textarea
+      aria-labelledby="Texto final"
       name=""
       id="textarea2"
       disabled
