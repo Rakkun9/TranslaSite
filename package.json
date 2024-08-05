@@ -14,6 +14,7 @@
     "@astrojs/check": "^0.8.1",
     "@astrojs/node": "^8.3.2",
     "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/vercel": "^7.7.2",
     "@fontsource-variable/outfit": "^5.0.13",
     "@google/generative-ai": "^0.16.0",
     "ai": "^3.2.43",
