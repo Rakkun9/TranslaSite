@@ -22,6 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt: texto1, sourceLang, targetLang })
       });
+      
+      if (!response.ok) {
+        throw new Error(`Error en la solicitud: ${response.statusText}`);
+      }
 
       const data = await response.json();
       if (response.ok) {
