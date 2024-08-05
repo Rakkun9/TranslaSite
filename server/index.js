@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 app.use(
   cors({
-    origin: "http://localhost:4321", // Cambia esto por el origen de tu frontend
+    origin: "https://transla-site.vercel.app/", // Cambia esto por el origen de tu frontend
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type,Authorization",
   })
