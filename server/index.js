@@ -16,6 +16,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 // Ruta para la API de generación de texto
 app.post('/api/generate-text', async (req, res) => {
+  
   const { prompt, sourceLang, targetLang } = req.body;
 
   try {
