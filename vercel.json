@@ -1,0 +1,31 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "server/index.js",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "astro.config.mjs",
+        "use": "@vercel/static-build"
+      },
+      {
+        "src": "tsconfig.json",
+        "use": "@vercel/node"
+      }
+      
+
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "/server/index.js"
+      },
+      {
+        "src": "/public",
+        "dest": "/"
+      }
+      
+
+    ]
+  }
