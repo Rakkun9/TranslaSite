@@ -2,8 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "astro.config.mjs",
-        "use": "@astrojs/vercel/astro"
+        "src": "astro.config.mjs"
       },
       {
         "src": "server/index.js",
