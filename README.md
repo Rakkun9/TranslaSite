@@ -1,54 +1,50 @@
-# Astro Starter Kit: Basics
+# TranslaSite
 
-```sh
-npm create astro@latest -- --template basics
-```
+TranslaSite es una aplicación web que utiliza la API de Google Generative AI para traducir texto de un idioma a otro. Esta aplicación está construida con Node.js y Express en el backend, y utiliza una API personalizada para manejar las solicitudes de traducción.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Características
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- Traducción de texto entre múltiples idiomas.
+- Interfaz de usuario sencilla y fácil de usar.
+- Configuración de CORS para permitir solicitudes desde el frontend.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Requisitos
 
-## 🚀 Project Structure
+- Node.js (versión 14 o superior)
+- npm (versión 6 o superior)
 
-Inside of your Astro project, you'll see the following folders and files:
+## Instalación
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+1. Clona este repositorio:
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+    ```bash
+    git clone https://github.com/tu-usuario/transla-site.git
+    cd transla-site
+    ```
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+2. Instala las dependencias del proyecto:
 
-Any static assets, like images, can be placed in the `public/` directory.
+    ```bash
+    npm install
+    ```
 
-## 🧞 Commands
+3. Corre un localhost o inicia con este comando el servidor local. Con este comando podras usar este como puente para la aplicación desplegada en vercel
 
-All commands are run from the root of the project, from a terminal:
+    ```env
+    node server/index.js
+    ```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+4. Inicia el servidor:
 
-## 👀 Want to learn more?
+    ```bash
+    npm start
+    ```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+5. Abre tu navegador y navega a `http://localhost:4321`. O puedes hacer las pruebas con el comando de `vercel dev` con el CLI de vercel
+
+## Uso
+
+1. Introduce el texto que deseas traducir en el área de texto.
+2. Selecciona el idioma de origen y el idioma de destino.
+3. Haz clic en el botón "Traducir" para obtener la traducción.
+  ...
