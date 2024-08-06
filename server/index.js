@@ -8,14 +8,14 @@ const { generateText } = require("ai");
 
 const cors = require("cors");
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "../public")));
 
 app.use(
   cors({
-    origin: "https://transla-site.vercel.app/", // Cambia esto por el origen de tu frontend
+    origin: true, // Cambia esto por el origen de tu frontend
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type,Authorization",
   })
