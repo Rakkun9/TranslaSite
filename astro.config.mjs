@@ -8,7 +8,7 @@ import vercelServerless from "@astrojs/vercel/serverless";
 export default defineConfig({
   integrations: [tailwind()],
   server: {
-    port: 3000, // Puerto en el que correrá Astro
+    port: 4321, // Puerto en el que correrá Astro
   },
   build: {
     outDir: 'dist',
