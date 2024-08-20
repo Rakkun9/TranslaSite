@@ -67,5 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Error en la traducción:", error);
       texto2.value = "Error en la traducción";
     }
+    // Clear the input text
   });
 });
