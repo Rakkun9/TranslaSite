@@ -13,6 +13,9 @@ import Image from "../icons/Image.astro";
   description="Puedes traduccir de imagen a texto o de texto a texto usando inteligencia artificial para potenciar la traducción"
 >
   <ContainerTranslaSite class="py-6 p-4">
+
+    <!-- Need to improve more this code, use map to get the options and the icons -->
+
     <nav class="flex gap-4 mt-8 flex-wrap">
       <Options href="#text">
         <TranslateIcon class="size-4 md:size-6" />Texto A Texto
@@ -22,6 +25,11 @@ import Image from "../icons/Image.astro";
       </Options>
     </nav>
     <section>
+
+      <!-- Need to improve more this code, put the button in other class, 
+       or move TranslasiteImage button to here, 
+       in order to make sense in the code -->
+       
       <Translate id="text" />
       <div class="p-5">
         <input
@@ -35,9 +43,9 @@ import Image from "../icons/Image.astro";
       <TranslateImage />
     </section>
 
-    <script is:inline src="/Script/GeminiTranslation.js"></script>
-
-    <!-- <script type="module" src="/src/components/scripts/GeminiTranslate.js"></script>
-    <script is:inline type="module" src="/Script/GeminiTranslation.js"></script> -->
+    <script src="/src/components/scripts/GeminiTranslate"></script>
+    <script src="/src/components/scripts/GeminiImage"></script>
+    <script src="/src/components/scripts/ExchangeButton.js"></script>
+    
   </ContainerTranslaSite>
 </Layout>
