@@ -12,22 +12,22 @@
   "dependencies": {
     "@ai-sdk/google": "^0.0.30",
     "@astrojs/check": "^0.8.3",
-    "@astrojs/node": "^8.3.2",
+    "@astrojs/node": "^8.3.3",
     "@astrojs/tailwind": "^5.1.0",
-    "@astrojs/vercel": "^7.7.2",
-    "@fontsource-variable/outfit": "^5.0.13",
+    "@astrojs/vercel": "^7.8.0",
+    "@fontsource-variable/outfit": "^5.0.14",
     "@google/generative-ai": "^0.16.0",
-    "ai": "^3.3.0",
-    "astro": "^4.13.1",
+    "ai": "^3.3.14",
+    "astro": "^4.14.4",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "pnpm": "^9.6.0",
-    "tailwindcss": "^3.4.7",
+    "pnpm": "^9.7.1",
+    "tailwindcss": "^3.4.10",
     "typescript": "^5.5.4"
   },
   "devDependencies": {
-    "@types/node": "^20.14.14",
-    "vite": "^5.3.5"
+    "@types/node": "^20.16.1",
+    "vite": "^5.4.2"
   }
 }
