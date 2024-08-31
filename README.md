@@ -1,3 +1,11 @@
+<h1 align="center"> TranslaSite </h1>
+<p align="center">
+   <img src="https://github.com/user-attachments/assets/496f67d8-877b-4574-94c0-961a37bac167">
+</p>
+
+![Badge en Desarollo](https://img.shields.io/badge/STATUS-%20TERMINADO-green)
+![GitHub Org's stars](https://img.shields.io/github/stars/Rakkun9?style=social)
+
 # TranslaSite
 
 TranslaSite es una aplicación web que permite traducir texto entre múltiples idiomas utilizando la inteligencia artificial de Google Generative AI (GEMINI). La aplicación está construida con Node.js y Express en el backend, y proporciona una API personalizada para manejar las solicitudes de traducción.
@@ -32,14 +40,6 @@ Sigue estos pasos para descargar y ejecutar el proyecto localmente:
    npm install
    ```
 
-3. **Configura las variables de entorno:**
-
-   Crea un archivo `.env` en la raíz del proyecto y añade tu clave de API de Google Generative AI:
-
-   ```env
-   GOOGLE_API_KEY=tu-clave-de-api
-   ```
-
 4. **Inicia el servidor local:**
 
    ```bash
@@ -65,6 +65,7 @@ Sigue estos pasos para descargar y ejecutar el proyecto localmente:
 1. Introduce el texto que deseas traducir en el área de texto.
 2. Selecciona el idioma de origen y el idioma de destino.
 3. Haz clic en el botón "Traducir" para obtener la traducción.
+4. Recuerda que la API key de Google es pública, puedes usar la que está en el proyecto o una propia tuya.
 
 ## Despliegue en Vercel
 
@@ -87,10 +88,6 @@ Para desplegar la aplicación en Vercel, sigue estos pasos:
    ```bash
    vercel
    ```
-
-4. **Configura las variables de entorno en Vercel:**
-
-   Ve a tu dashboard de Vercel, selecciona tu proyecto y añade la variable de entorno `GOOGLE_API_KEY` con tu clave de API.
 
 ## Contribuciones
 
