@@ -52,6 +52,21 @@ Sigue estos pasos para descargar y ejecutar el proyecto localmente:
    npm start
    ```
 
+## Environment Variables
+
+Before running the application, you need to set up your Google API key.
+
+1.  **Create a `.env` file** in the root directory of the project.
+2.  **Add your API key** to the `.env` file in the following format:
+
+    ```
+    GOOGLE_API_KEY=your_actual_api_key_here
+    ```
+
+    Replace `your_actual_api_key_here` with your actual Google Generative AI API key.
+
+3.  **Security Note**: The `.env` file is included in the project's `.gitignore` file, so it will not and should not be committed to your version control system. This is crucial for keeping your API key private.
+
 6. **(Opcional) Pruebas con Vercel:**
 
    Si deseas hacer pruebas con Vercel, asegúrate de tener el CLI de Vercel instalado y ejecuta:

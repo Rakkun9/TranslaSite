@@ -1,8 +1,4 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
-
 // Inicializa la API de Google Generative AI con la clave API proporcionada
-const genAI = new GoogleGenerativeAI("AIzaSyB2mj4tS95ID7e0dUieqmnkBE4s6q-ved4");
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // Espera a que el DOM esté completamente cargado
 document.addEventListener("DOMContentLoaded", () => {
@@ -29,34 +25,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Maneja la carga del archivo
       reader.onload = async (event) => {
-        const sourceLang = document.getElementById("sourceLangImage").value; // Obtiene el idioma de origen
-        const targetLang = document.getElementById("targetLangImage").value; // Obtiene el idioma de destino
-        const base64Image = event.target.result.split(",")[1]; // Obtiene la cadena base64 de la imagen
-        const mimeType = file.type; // Obtiene el tipo MIME del archivo
+        const sourceLang = document.getElementById("sourceLangImage").value;
+        const targetLang = document.getElementById("targetLangImage").value;
+        const base64Image = event.target.result.split(",")[1];
+        const mimeType = file.type;
 
-        // Crea el prompt para la API de Google Generative AI
-        const prompt = `Quiero que traduzcas el texto de esta imagen de ${sourceLang} a ${targetLang}, tu respuesta tiene que ser dada en ${targetLang}.`;
-        console.log(prompt);
-
-        // Crea el objeto de imagen con los datos en base64 y el tipo MIME
-        const image = {
-          inlineData: {
-            data: base64Image,
-            mimeType: mimeType,
-          },
-        };
-
-        // Verifica si los idiomas de origen y destino son diferentes
         if (sourceLang === targetLang) {
           alert("Por favor, selecciona idiomas diferentes");
           return;
         }
 
-        // Llama a la API de Google Generative AI para generar el contenido
-        const result = await model.generateContent([prompt, image]);
-        const response = await result.response;
-        const text = response.text(); // Obtiene el texto de la respuesta
-        textAreaImage.value = text; // Muestra el texto en el área de texto
+        try {
+          const response = await fetch('/api/translateImage', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              base64Image,
+              mimeType,
+              sourceLang,
+              targetLang,
+            }),
+          });
+
+          if (!response.ok) {
+            const errorData = await response.json().catch(() => ({ error: 'Failed to parse error response' })); // Catch if error response is not JSON
+            console.error('Error from API:', errorData.error);
+            textAreaImage.value = `Error: ${errorData.error || 'Failed to translate image'}`;
+            return;
+          }
+
+          const data = await response.json();
+          textAreaImage.value = data.translatedText;
+        } catch (error) {
+          console.error("Error fetching image translation:", error);
+          textAreaImage.value = "Error en la traducción de la imagen.";
+        }
       };
 
       reader.readAsDataURL(file); // Lee el archivo como una URL de datos (base64)

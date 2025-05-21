@@ -1,12 +1,6 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
-import { createGoogleGenerativeAI, google } from "@ai-sdk/google";
-import { generateText } from "ai";
-
-// This API key is public; anyone can use it
-const genAI = new GoogleGenerativeAI("AIzaSyB2mj4tS95ID7e0dUieqmnkBE4s6q-ved4");
 
 /**
- * Function to run the translation using Google Generative AI
+ * Function to run the translation using the API endpoint
  * @param {string} prompt - The text to be translated
  * @param {string} sourceLang - The source language of the text
  * @param {string} targetLang - The target language for the translation
@@ -16,18 +10,22 @@ const genAI = new GoogleGenerativeAI("AIzaSyB2mj4tS95ID7e0dUieqmnkBE4s6q-ved4");
  */
 
 async function run(prompt, sourceLang, targetLang) {
-  const google = createGoogleGenerativeAI({
-    // This API key is public; anyone can use it
-    apiKey: "AIzaSyB2mj4tS95ID7e0dUieqmnkBE4s6q-ved4", // should ideally be loaded from an external place such as an environment variable
+  const response = await fetch('/api/translate', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ prompt, sourceLang, targetLang }),
   });
 
-  // Generate the translation using the AI model
-  const promptVercel = await generateText({
-    model: google("models/gemini-1.5-flash-latest"),
-    prompt: `Just translate the phrase and do not put additional context. Translate the following text from ${sourceLang} to ${targetLang}: ${prompt}`,
-  });
+  if (!response.ok) {
+    const errorData = await response.json();
+    console.error('Error from API:', errorData.error);
+    throw new Error(errorData.error || 'Failed to translate');
+  }
 
-  return promptVercel.text;
+  const data = await response.json();
+  return data.translatedText;
 }
 
 // Wait for the DOM to be fully loaded
